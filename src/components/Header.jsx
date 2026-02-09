@@ -18,7 +18,10 @@ const Header = () => {
     fetchFeatured();
   }, []);
 
-  return featured ? (
+  // Poster section only when featured is available
+  if (!featured) return null; // ❌ local loader removed
+
+  return (
     <div
       className="relative h-[70vh] w-full bg-cover bg-center text-white flex flex-col justify-end p-8"
       style={{
@@ -45,8 +48,6 @@ const Header = () => {
         </button>
       </div>
     </div>
-  ) : (
-    <h1 className="text-white">Loading...</h1>
   );
 };
 

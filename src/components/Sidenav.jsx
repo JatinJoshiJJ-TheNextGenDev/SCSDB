@@ -1,5 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { FaFire, FaStar, FaFilm, FaTv, FaUser, FaInfoCircle, FaPhone } from "react-icons/fa";
+import {
+  FaFire,
+  FaStar,
+  FaFilm,
+  FaTv,
+  FaUser,
+  FaInfoCircle,
+  FaPhone,
+} from "react-icons/fa";
 
 const Sidenav = () => {
   const mainLinks = [
@@ -20,6 +28,8 @@ const Sidenav = () => {
       {/* Top Section */}
       <div className="p-6">
         <h1 className="text-2xl font-bold mb-8 text-[#6556CD]">SCSDB</h1>
+
+        {/* Main Links */}
         <h2 className="text-lg font-semibold mb-4 text-gray-400">New Feeds</h2>
         <ul className="space-y-3 border-b-2 border-zinc-700 pb-6">
           {mainLinks.map((link) => (
@@ -41,7 +51,10 @@ const Sidenav = () => {
           ))}
         </ul>
 
-        <h2 className="text-lg font-semibold mt-8 mb-4 text-gray-400">Website Information</h2>
+        {/* Info Links */}
+        <h2 className="text-lg font-semibold mt-8 mb-4 text-gray-400">
+          Website Information
+        </h2>
         <ul className="space-y-3">
           {infoLinks.map((link) => (
             <li key={link.name}>
@@ -72,4 +85,3 @@ const Sidenav = () => {
 };
 
 export default Sidenav;
-

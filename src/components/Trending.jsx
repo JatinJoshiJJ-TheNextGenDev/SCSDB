@@ -31,16 +31,25 @@ const Trending = () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold text-zinc-400">Trending</h2>
 
-        {/* Dropdown filter */}
-        <select
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="bg-[#1F1E24] text-gray-300 px-4 py-2 rounded-md border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-[#6556CD] transition"
-        >
-          <option value="all">ALL</option>
-          <option value="movie">MOVIE</option>
-          <option value="tv">TV</option>
-        </select>
+        {/* Stylish Dropdown filter */}
+        <div className="relative">
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="bg-[#1F1E24] text-gray-300 px-4 py-2 rounded-lg border border-zinc-700 
+                       focus:outline-none focus:ring-2 focus:ring-[#6556CD] transition 
+                       appearance-none cursor-pointer pr-10 hover:border-[#6556CD]"
+          >
+            <option value="all">ALL</option>
+            <option value="movie">MOVIE</option>
+            <option value="tv">TV</option>
+          </select>
+
+          {/* Custom arrow */}
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 group-hover:text-[#6556CD] transition">
+            ▼
+          </span>
+        </div>
       </div>
 
       {/* Horizontal scroll container */}
@@ -48,7 +57,8 @@ const Trending = () => {
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="min-w-[200px] bg-[#2A2A2A] text-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700"
+            className="min-w-[200px] bg-[#2A2A2A] text-white rounded-lg shadow-md overflow-hidden 
+                       hover:scale-105 transition-transform duration-300 border border-zinc-700 hover:border-[#6556CD]"
           >
             {/* Poster */}
             <img

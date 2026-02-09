@@ -1,11 +1,34 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
+import Loader from "./components/Loader";
+import NotFound from "./components/NotFound";
+import Trending from "./pages/Trending";   // ✅ Trending page import
+import { useState, useEffect } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // simulate initial load (API call ya setup)
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />; // ✅ global loader dikh raha hai
+  }
+
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen bg-[#1F1E24] text-white">
       <Routes>
+        {/* Home route */}
         <Route path="/" element={<Home />} />
+
+        {/* Trending route */}
+        <Route path="/trending" element={<Trending />} />
+
+        {/* Fallback 404 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
