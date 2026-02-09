@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineHistory } from "react-icons/ai";
+import { MdImageNotSupported } from "react-icons/md";
 import axiosInstance from "../utils/axios";
 
 const Topnav = () => {
@@ -129,12 +130,16 @@ const Topnav = () => {
                     }}
                     className="flex items-center gap-3 p-2 hover:bg-[#6556CD] transition cursor-pointer"
                   >
-                    {item.poster_path && (
+                    {item.poster_path ? (
                       <img
                         src={`https://image.tmdb.org/t/p/w92${item.poster_path}`}
                         alt={item.title || item.name}
                         className="w-10 h-14 object-cover rounded"
                       />
+                    ) : (
+                      <div className="w-10 h-14 bg-gray-600 rounded flex items-center justify-center">
+                        <MdImageNotSupported className="text-gray-300 text-lg" />
+                      </div>
                     )}
                     <p className="truncate">{item.title || item.name}</p>
                   </div>
