@@ -107,11 +107,20 @@ const Trending = () => {
           .map((item) => (
             <div
               key={item.id}
-              className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700"
+              onClick={() => {
+                if (item.media_type === "movie") {
+                  navigate(`/movie/${item.id}`);
+                } else if (item.media_type === "tv") {
+                  navigate(`/tv/${item.id}`);
+                } else if (item.media_type === "person") {
+                  navigate(`/person/${item.id}`);
+                }
+              }}
+              className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700 cursor-pointer"
             >
-              {item.poster_path ? (
+              {item.poster_path || item.profile_path ? (
                 <img
-                  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w300${item.poster_path || item.profile_path}`}
                   alt={item.title || item.name}
                   className="w-full h-72 object-cover border-b border-zinc-700"
                 />

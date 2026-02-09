@@ -1,16 +1,50 @@
-# React + Vite
+# 🎬 CineScope – Movie & TV Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Discover trending movies, popular TV shows, and your favorite actors with a **Netflix‑style premium UI** powered by React, TailwindCSS, and TMDB API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 🔥 **Trending Section** – Browse what's hot this week or today  
+- 🎥 **Movies & TV** – Explore popular movies and series with infinite scroll  
+- 🌟 **People** – Discover trending actors and their work  
+- 🎞️ **Detail Pages** – Premium glassmorphism UI with:
+  - Poster + Overview
+  - User Score & Genres
+  - Streaming Availability
+  - Trailer Modal (YouTube popup)
+  - Recommendations Carousel (Swiper.js)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚛️ **React.js** – Component‑based UI  
+- 🎨 **TailwindCSS** – Utility‑first styling with custom themes  
+- 🚀 **Vite** – Fast bundler & dev server  
+- 🔄 **Axios** – API requests  
+- 🎬 **TMDB API** – Movie & TV data source  
+- 🎡 **Framer Motion** – Smooth animations  
+- 🌀 **Swiper.js** – Netflix‑style carousel  
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+![Home](https://via.placeholder.com/800x400.png?text=Home+Page)
+
+### Movie Detail
+![Movie Detail](https://via.placeholder.com/800x400.png?text=Movie+Detail+Page)
+
+---
+
+## ⚙️ Installation & Setup
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/your-username/cinescope.git
+cd cinescope
+npm install

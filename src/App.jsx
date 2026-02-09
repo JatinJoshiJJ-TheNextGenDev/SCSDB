@@ -7,6 +7,12 @@ import Popular from "./pages/Popular";     // ✅ Popular page import
 import Movies from "./pages/Movies";       // ✅ Movies page import
 import TV from "./pages/TV";               // ✅ TV Shows page import
 import People from "./pages/People";       // ✅ People page import
+
+// ✅ Detail pages
+import MovieDetail from "./pages/MovieDetail";
+import TVDetail from "./pages/TVDetail";
+import PersonDetail from "./pages/PersonDetail";
+
 import { useState, useEffect } from "react";
 
 function App() {
@@ -42,6 +48,11 @@ function App() {
 
         {/* People route */}
         <Route path="/people" element={<People />} />
+
+        {/* Detail routes */}
+        <Route path="/movie/:id" element={<MovieDetail />} />
+        <Route path="/tv/:id" element={<TVDetail />} />
+        <Route path="/person/:id" element={<PersonDetail />} />
 
         {/* Fallback 404 */}
         <Route path="*" element={<NotFound />} />

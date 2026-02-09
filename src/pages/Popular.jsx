@@ -90,7 +90,14 @@ const Popular = () => {
           .map((item) => (
             <div
               key={item.id}
-              className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700"
+              onClick={() => {
+                if (category === "movie") {
+                  navigate(`/movie/${item.id}`);
+                } else if (category === "tv") {
+                  navigate(`/tv/${item.id}`);
+                }
+              }}
+              className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700 cursor-pointer"
             >
               {item.poster_path ? (
                 <img

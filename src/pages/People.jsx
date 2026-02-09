@@ -66,7 +66,8 @@ const People = () => {
           .map((p) => (
             <div
               key={p.id}
-              className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700"
+              onClick={() => navigate(`/person/${p.id}`)}   // ✅ Navigate to detail
+              className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700 cursor-pointer"
             >
               {p.profile_path ? (
                 <img

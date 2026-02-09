@@ -12,7 +12,7 @@ const Movies = () => {
   const fetchMovies = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await axiosInstance.get(`/movie/popular?page=${page}`); // ✅ Movies popular
+      const res = await axiosInstance.get(`/movie/popular?page=${page}`);
       setMovies((prev) => [...prev, ...res.data.results]);
     } catch (error) {
       console.error("Error fetching movies:", error);
@@ -44,8 +44,16 @@ const Movies = () => {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies.filter((m) => m.title?.toLowerCase().includes(query.toLowerCase())).map((m) => (
-          <div key={m.id} className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700">
-            <img src={`https://image.tmdb.org/t/p/w300${m.poster_path}`} alt={m.title} className="w-full h-72 object-cover border-b border-zinc-700" />
+          <div
+            key={m.id}
+            onClick={() => navigate(`/movie/${m.id}`)}
+            className="bg-[#2A2A2A] rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 border border-zinc-700 cursor-pointer"
+          >
+            {m.poster_path ? (
+              <img src={`https://image.tmdb.org/t/p/w300${m.poster_path}`} alt={m.title} className="w-full h-72 object-cover border-b border-zinc-700" />
+            ) : (
+              <div className="w-full h-72 bg-zinc-800 flex items-center justify-center text-gray-400">No Poster</div>
+            )}
             <div className="p-3">
               <h3 className="text-base font-semibold truncate">{m.title}</h3>
               <p className="text-sm text-gray-400 line-clamp-2">{m.overview}</p>

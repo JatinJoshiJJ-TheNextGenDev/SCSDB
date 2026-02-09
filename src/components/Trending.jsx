@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axios";
 
 const Trending = () => {
   const [trending, setTrending] = useState([]);
   const [filter, setFilter] = useState("all");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTrending = async () => {
@@ -46,7 +48,7 @@ const Trending = () => {
           </select>
 
           {/* Custom arrow */}
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 group-hover:text-[#6556CD] transition">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
             ▼
           </span>
         </div>
@@ -57,12 +59,22 @@ const Trending = () => {
         {filteredItems.map((item) => (
           <div
             key={item.id}
+            onClick={() => {
+              if (item.media_type === "movie") {
+                navigate(`/movie/${item.id}`);
+              } else if (item.media_type === "tv") {
+                navigate(`/tv/${item.id}`);
+              } else if (item.media_type === "person") {
+                navigate(`/person/${item.id}`);
+              }
+            }}
             className="min-w-[200px] bg-[#2A2A2A] text-white rounded-lg shadow-md overflow-hidden 
-                       hover:scale-105 transition-transform duration-300 border border-zinc-700 hover:border-[#6556CD]"
+                       hover:scale-105 transition-transform duration-300 border border-zinc-700 
+                       hover:border-[#6556CD] cursor-pointer"
           >
             {/* Poster */}
             <img
-              src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w300${item.poster_path || item.profile_path}`}
               alt={item.title || item.name}
               className="w-full h-72 object-cover border-b border-zinc-700"
             />
