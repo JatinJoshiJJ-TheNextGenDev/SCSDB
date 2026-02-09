@@ -3,6 +3,10 @@ import Home from "./components/Home";
 import Loader from "./components/Loader";
 import NotFound from "./components/NotFound";
 import Trending from "./pages/Trending";   // ✅ Trending page import
+import Popular from "./pages/Popular";     // ✅ Popular page import
+import Movies from "./pages/Movies";       // ✅ Movies page import
+import TV from "./pages/TV";               // ✅ TV Shows page import
+import People from "./pages/People";       // ✅ People page import
 import { useState, useEffect } from "react";
 
 function App() {
@@ -26,6 +30,18 @@ function App() {
 
         {/* Trending route */}
         <Route path="/trending" element={<Trending />} />
+
+        {/* Popular route */}
+        <Route path="/popular" element={<Popular />} />
+
+        {/* Movies route */}
+        <Route path="/movies" element={<Movies />} />
+
+        {/* TV Shows route */}
+        <Route path="/tv" element={<TV />} />
+
+        {/* People route */}
+        <Route path="/people" element={<People />} />
 
         {/* Fallback 404 */}
         <Route path="*" element={<NotFound />} />
