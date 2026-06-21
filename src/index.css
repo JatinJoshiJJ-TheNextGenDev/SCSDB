@@ -9,8 +9,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar Theme */
+/* Hide scrollbar globally */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Custom Scrollbar Theme (For Trending Section) */
 .custom-scrollbar::-webkit-scrollbar {
+  display: block;
   height: 8px; /* horizontal scroll height */
   width: 8px;  /* vertical scroll width */
 }
@@ -29,13 +39,10 @@ html {
   background-color: #4d44a3; /* darker purple on hover */
 }
 
-/* Hide scrollbar but keep scroll functionality */
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #6556CD #1F1E24; /* Firefox */
+  -ms-overflow-style: auto; /* IE and Edge */
 }
 
 /* Premium UI extras */

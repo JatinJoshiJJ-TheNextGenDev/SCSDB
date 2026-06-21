@@ -14,14 +14,31 @@ import TVDetail from "./pages/TVDetail";
 import PersonDetail from "./pages/PersonDetail";
 
 import { useState, useEffect } from "react";
+import Lenis from "lenis";
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Lenis smooth scrolling setup
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
     // simulate initial load (API call ya setup)
     const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      lenis.destroy();
+    };
   }, []);
 
   if (loading) {
@@ -29,7 +46,7 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-screen bg-[#1F1E24] text-white">
+    <div className="w-full min-h-screen bg-[#1F1E24] text-white overflow-x-hidden">
       <Routes>
         {/* Home route */}
         <Route path="/" element={<Home />} />

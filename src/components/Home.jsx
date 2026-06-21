@@ -11,12 +11,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex w-full min-h-screen relative">
       {/* Sidebar fixed */}
-      <Sidenav />
+      <div className="fixed top-0 left-0 h-screen shrink-0 w-64 z-50">
+        <Sidenav />
+      </div>
 
-      {/* Main content scrollable */}
-      <div className="flex-1 flex flex-col overflow-y-auto custom-scrollbar hide-scrollbar bg-[#1F1E24]">
+      {/* Main content */}
+      <div className="flex-1 flex flex-col bg-[#1F1E24] overflow-x-hidden ml-64">
         {/* Topnav with bottom border */}
         <div className="border-b border-zinc-700">
           <Topnav />
